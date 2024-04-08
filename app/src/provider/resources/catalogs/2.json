@@ -1,0 +1,29 @@
+{
+  "id": 2,
+  "name": {
+    "en": "Croissant",
+    "ru": "Круассан"
+  },
+  "desc": {
+    "en": "Sample text",
+    "ru": "Образец текста"
+  },
+  "productIds": [
+    3,
+    4
+  ],
+  "tags": [
+    {
+      "name": "PUBLISHED"
+    },
+    {
+      "name": "MENU"
+    }
+  ],
+  "image": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg",
+  "files": [
+    {
+      "name": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg"
+    }
+  ]
+}

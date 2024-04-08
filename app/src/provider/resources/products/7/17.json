@@ -1,0 +1,18 @@
+{
+  "id": 17,
+  "name": {
+    "en": "Shortbread 17",
+    "ru": "Шорти 17"
+  },
+  "desc": {
+    "en": "Sample text",
+    "ru": "Образец текста"
+  },
+  "price": 4.5,
+  "image": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg",
+  "files": [
+    {
+      "name": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg"
+    }
+  ]
+}

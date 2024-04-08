@@ -1,0 +1,26 @@
+{
+  "id": 9,
+  "name": {
+    "en": "Turkish Bagels",
+    "ru": "Турецкие бублики"
+  },
+  "desc": {
+    "en": "Sample text",
+    "ru": "Образец текста"
+  },
+  "productIds": [
+    21,
+    22
+  ],
+  "tags": [
+    {
+      "name": "PUBLISHED_VIP"
+    }
+  ],
+  "image": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg",
+  "files": [
+    {
+      "name": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg"
+    }
+  ]
+}

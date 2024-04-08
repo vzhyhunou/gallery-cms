@@ -1,0 +1,18 @@
+{
+  "id": 6,
+  "name": {
+    "en": "Milk Bread",
+    "ru": "Молочный хлеб"
+  },
+  "desc": {
+    "en": "Sample text",
+    "ru": "Образец текста"
+  },
+  "price": 3.55,
+  "image": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg",
+  "files": [
+    {
+      "name": "2164c9abcd4088b31bbf5e7cf62f79c6.jpg"
+    }
+  ]
+}
