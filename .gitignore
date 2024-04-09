@@ -1,0 +1,8 @@
+app/node
+app/node_modules
+.idea
+*.ipr
+*.iml
+*.iws
+.shelf
+target
