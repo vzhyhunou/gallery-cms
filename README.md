@@ -1,7 +1,7 @@
 # Gallery CMS
 ![Java CI](https://github.com/vzhyhunou/gallery-cms/actions/workflows/deploy.yml/badge.svg)
 ## About
-This project is simple example of E-commerce landing page design based on [vzh-cms](https://github.com/vzhyhunou/vzh-cms) and demonstrate how to extend base model and functionality to be able to manage any product catalogs.
+This project is simple example of E-commerce landing page design based on [vzh-cms](https://github.com/vzhyhunou/vzh-cms) and demonstrate how to extend base model and functionality to be able to manage all your product catalogs.
 
 ## Tech stack and libraries
 - ReactJS
