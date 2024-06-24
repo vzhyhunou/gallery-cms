@@ -1,5 +1,5 @@
 import React from 'react';
-import App, {Page, pages, users} from '@vzhyhunou/vzh-cms';
+import {Core, Page, pages, users} from '@vzhyhunou/vzh-cms';
 import {Route, Navigate} from 'react-router-dom';
 import {CustomRoutes, Resource} from 'react-admin';
 
@@ -8,13 +8,12 @@ import {
     catalogs
 } from './admin/resources';
 import Layout from './cms/Layout';
-import config from './config';
 
-export default () => {
+export default ({config}) => {
 
     const {tags: {users: {PAGES_EDITOR, MANAGER, CATALOGS_EDITOR}}} = config;
 
-    return <App {...{config}}>
+    return <Core {...{config}}>
         <CustomRoutes noLayout>
             <Route path="/" element={<Navigate to="cms/pages/home"/>}/>
             <Route path="cms" element={<Layout/>}>
@@ -37,5 +36,5 @@ export default () => {
                 : null}
             </>
         }
-    </App>;
+    </Core>;
 };

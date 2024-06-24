@@ -3,10 +3,11 @@ import {render, screen} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
 
 import App from './App'
+import config from './config';
 
 const renderWithHistory = (route = '/') => render(
     <MemoryRouter initialEntries={[route]}>
-        <App/>
+        <App {...{config}}/>
     </MemoryRouter>
 )
 
