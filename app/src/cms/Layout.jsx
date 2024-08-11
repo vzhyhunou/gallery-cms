@@ -32,7 +32,6 @@ export default () => {
     return <>
         <GlobalStyles {...{styles}}/>
         <Helmet>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <meta name="keywords" content={translate('corporate.keywords')} />
             <meta name="description" content={translate('corporate.description')} />
             {[s0, s1, s2].map((s, i) => <style key={i}>{s}</style>)}
