@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start:fake": "cross-env REACT_APP_SRC=fake vite",
-    "build:fake": "cross-env BUILD_PATH=../target/classes/static REACT_APP_SRC=fake vite build && rimraf ../docs && BUILD_PATH=../docs REACT_APP_SRC=fake REACT_APP_BASE=/gallery-cms vite build",
+    "build:fake": "cross-env BUILD_PATH=../target/classes/public REACT_APP_SRC=fake vite build && rimraf ../docs && BUILD_PATH=../docs REACT_APP_SRC=fake REACT_APP_BASE=/gallery-cms vite build",
     "test": "cross-env REACT_APP_SRC=fake jest"
   }
 }
