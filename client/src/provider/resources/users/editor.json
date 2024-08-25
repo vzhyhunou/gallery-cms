@@ -1,0 +1,11 @@
+{
+  "id": "editor",
+  "tags": [
+    {
+      "name": "PAGES_EDITOR"
+    },
+    {
+      "name": "CATALOGS_EDITOR"
+    }
+  ]
+}

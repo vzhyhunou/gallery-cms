@@ -1,0 +1,25 @@
+{
+  "name": "@vzhyhunou/gallery-cms",
+  "version": "0.0.1",
+  "dependencies": {
+    "@vzhyhunou/vzh-cms": "^0.0.1",
+    "react-helmet": "^6.1.0",
+    "react-router-hash-link": "^2.4.3"
+  },
+  "devDependencies": {
+    "vite": "^4.5.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "eslint-config-react-app": "^7.0.1",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.1.2",
+    "jest-environment-jsdom": "^29.7.0",
+    "cross-env": "^7.0.3",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "start:fake": "cross-env REACT_APP_SRC=fake vite",
+    "build:fake": "cross-env BUILD_PATH=../target/classes/public REACT_APP_SRC=fake vite build && rimraf ../docs && BUILD_PATH=../docs REACT_APP_SRC=fake REACT_APP_BASE=/gallery-cms vite build",
+    "test": "cross-env REACT_APP_SRC=fake jest"
+  }
+}

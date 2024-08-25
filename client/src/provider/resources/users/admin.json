@@ -1,0 +1,20 @@
+{
+  "id": "admin",
+  "tags": [
+    {
+      "name": "ADMIN"
+    },
+    {
+      "name": "MANAGER"
+    },
+    {
+      "name": "PAGES_EDITOR"
+    },
+    {
+      "name": "CATALOGS_EDITOR"
+    },
+    {
+      "name": "VIP"
+    }
+  ]
+}

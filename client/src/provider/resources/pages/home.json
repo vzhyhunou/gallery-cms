@@ -1,0 +1,12 @@
+{
+  "tags": [
+    {
+      "name": "PUBLISHED"
+    }
+  ],
+  "id": "home",
+  "content": {
+    "ru": "<Page id=\"title.1\" toCatalogs=\"catalogs\"/>\n<Catalog defaultId=\"1\" id=\"catalog\"/>\n<Menu id=\"catalogs\" toCatalog=\"catalog\"/>\n{permissions && permissions.includes(context.tags.users.VIP) && <Page id=\"title.4\"/>}\n<Page id=\"title.5\"/>\n<Page id=\"title.6\"/>",
+    "en": "<Page id=\"title.1\" toCatalogs=\"catalogs\"/>\n<Catalog defaultId=\"1\" id=\"catalog\"/>\n<Menu id=\"catalogs\" toCatalog=\"catalog\"/>\n{permissions && permissions.includes(context.tags.users.VIP) && <Page id=\"title.4\"/>}\n<Page id=\"title.5\"/>\n<Page id=\"title.6\"/>"
+  }
+}

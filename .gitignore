@@ -1,5 +1,5 @@
-app/node
-app/node_modules
+client/node
+client/node_modules
 .idea
 *.ipr
 *.iml
