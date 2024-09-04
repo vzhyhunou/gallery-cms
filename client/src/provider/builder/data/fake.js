@@ -46,7 +46,7 @@ const getListResponse = async (
 const exchangeResponse = (
     {
         dataProvider: {getOne, getList, getMany, getPath, isTagsActive},
-        tags: {users, catalogs},
+        resources: {users, catalogs},
         localeProvider: {getLocale},
         authProvider: {getPermissions}
     },
@@ -63,8 +63,8 @@ const exchangeResponse = (
                 switch (path) {
                     case 'one':
                         return getOne(resource, {id}).then(async ({data: {name, desc, productIds, ...rest}}) => {
-                            if (!(isTagsActive(rest, [catalogs.PUBLISHED]) || (permissions && permissions.includes(users.CATALOGS_EDITOR))
-                                || (isTagsActive(rest, [catalogs.PUBLISHED_VIP]) && (permissions && permissions.includes(users.VIP))))) {
+                            if (!(isTagsActive(rest, [catalogs.tags.PUBLISHED]) || (permissions && permissions.includes(users.tags.CATALOGS_EDITOR))
+                                || (isTagsActive(rest, [catalogs.tags.PUBLISHED_VIP]) && (permissions && permissions.includes(users.tags.VIP))))) {
                                 return false;
                             }
                             return {
@@ -82,7 +82,7 @@ const exchangeResponse = (
                         }, () => false);
                     case 'menu':
                         return getList(resource).then(({data}) => ({
-                            data: data.filter(p => isTagsActive(p, [catalogs.MENU]))
+                            data: data.filter(p => isTagsActive(p, [catalogs.tags.MENU]))
                                 .map(({name, desc, ...rest}) => ({
                                     name: name[locale],
                                     desc: desc[locale],

@@ -9,22 +9,28 @@ export default (({REACT_APP_SRC, REACT_APP_BASE}) => ({
         en: 'English',
         ru: 'Русский'
     },
-    tags: {
+    resources: {
         pages: {
-            MENU: 'MENU',
-            PUBLISHED: 'PUBLISHED'
+            tags: {
+                MENU: 'MENU',
+                PUBLISHED: 'PUBLISHED'
+            }
         },
         users: {
-            ADMIN: 'ADMIN',
-            MANAGER: 'MANAGER',
-            PAGES_EDITOR: 'PAGES_EDITOR',
-            CATALOGS_EDITOR: 'CATALOGS_EDITOR',
-            VIP: 'VIP'
+            tags: {
+                ADMIN: 'ADMIN',
+                MANAGER: 'MANAGER',
+                PAGES_EDITOR: 'PAGES_EDITOR',
+                CATALOGS_EDITOR: 'CATALOGS_EDITOR',
+                VIP: 'VIP'
+            }
         },
         catalogs: {
-            PUBLISHED: 'PUBLISHED',
-            PUBLISHED_VIP: 'PUBLISHED_VIP',
-            MENU: 'MENU'
+            tags: {
+                PUBLISHED: 'PUBLISHED',
+                PUBLISHED_VIP: 'PUBLISHED_VIP',
+                MENU: 'MENU'
+            }
         }
     },
     components: {
