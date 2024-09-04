@@ -11,6 +11,19 @@ const getListResponse = async (
     const {pagination, ...rest} = params;
 
     switch (resource) {
+        case 'catalogs':
+            return getList(resource, rest).then(({data}) => {
+                if (filter.id) {
+                    data = data.filter(({id}) => id === Number(filter.id));
+                }
+                if (filter.name) {
+                    data = data.filter(({name}) => isLocalesIncludes(name, filter.name));
+                }
+                if (filter.tags) {
+                    data = data.filter(i => isTagsActive(i, filter.tags));
+                }
+                return getPage(data, params);
+            });
         case 'products':
             return getList(resource, rest).then(async ({data}) => {
                 if (filter.id) {
@@ -25,19 +38,6 @@ const getListResponse = async (
                 }
                 return getPage(data, params);
             });
-        case 'catalogs':
-            return getList(resource, rest).then(({data}) => {
-                if (filter.id) {
-                    data = data.filter(({id}) => id === Number(filter.id));
-                }
-                if (filter.name) {
-                    data = data.filter(({name}) => isLocalesIncludes(name, filter.name));
-                }
-                if (filter.tags) {
-                    data = data.filter(i => isTagsActive(i, filter.tags));
-                }
-                return getPage(data, params);
-            });
         default:
             return false;
     }
@@ -46,7 +46,7 @@ const getListResponse = async (
 const exchangeResponse = (
     {
         dataProvider: {getOne, getList, getMany, getPath, isTagsActive},
-        tags: {users, catalogs},
+        resources: {users, catalogs},
         localeProvider: {getLocale},
         authProvider: {getPermissions}
     },
@@ -63,11 +63,11 @@ const exchangeResponse = (
                 switch (path) {
                     case 'one':
                         return getOne(resource, {id}).then(async ({data: {name, desc, productIds, ...rest}}) => {
-                            if (!(isTagsActive(rest, [catalogs.PUBLISHED]) || (permissions && permissions.includes(users.CATALOGS_EDITOR))
-                                || (isTagsActive(rest, [catalogs.PUBLISHED_VIP]) && (permissions && permissions.includes(users.VIP))))) {
+                            if (!(isTagsActive(rest, [catalogs.tags.PUBLISHED]) || (permissions && permissions.includes(users.tags.CATALOGS_EDITOR))
+                                || (isTagsActive(rest, [catalogs.tags.PUBLISHED_VIP]) && (permissions && permissions.includes(users.tags.VIP))))) {
                                 return false;
                             }
-                            return ({
+                            return {
                                 data: {
                                     name: name[locale],
                                     desc: desc[locale],
@@ -78,11 +78,11 @@ const exchangeResponse = (
                                             ...rest
                                         })))
                                 }
-                            });
+                            };
                         }, () => false);
                     case 'menu':
                         return getList(resource).then(({data}) => ({
-                            data: data.filter(p => isTagsActive(p, [catalogs.MENU]))
+                            data: data.filter(p => isTagsActive(p, [catalogs.tags.MENU]))
                                 .map(({name, desc, ...rest}) => ({
                                     name: name[locale],
                                     desc: desc[locale],

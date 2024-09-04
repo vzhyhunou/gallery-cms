@@ -11,11 +11,11 @@ export default () => {
 
     const refresh = useRefresh();
     const {id} = useParams();
-    const {tags: {users: {
+    const {resources: {users: {tags: {
         PAGES_EDITOR,
         CATALOGS_EDITOR,
         MANAGER
-    }}} = useContextProvider();
+    }}}} = useContextProvider();
     const translate = useTranslate();
     const locale = useLocale();
     const locales = useLocales();

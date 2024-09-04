@@ -21,7 +21,7 @@ export default () => {
 
     const locales = useLocales();
     const {permissions} = usePermissions();
-    const {tags: {users: {MANAGER}}} = useContextProvider();
+    const {resources: {users: {tags: {MANAGER}}}} = useContextProvider();
 
     return <Edit>
         <TabbedForm>
