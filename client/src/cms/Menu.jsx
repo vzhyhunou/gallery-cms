@@ -1,16 +1,17 @@
-import React, {useRef, useEffect} from 'react';
-import {useLocale, useSetLocale, useTranslate, usePermissions, useLocales, useRefresh, useLogout} from 'react-admin';
-import {Link, useParams} from 'react-router-dom';
-import {HashLink} from 'react-router-hash-link';
+import React, { useRef, useEffect } from 'react';
+import { useLocale, useSetLocale, useTranslate, usePermissions, useLocales, useRefresh, useLogout} from 'react-admin';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import clsx from 'clsx';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {useContextProvider} from '@vzhyhunou/vzh-cms';
+import { useContextProvider } from '@vzhyhunou/vzh-cms';
 
 export default () => {
 
     const refresh = useRefresh();
     const {id} = useParams();
+    const [searchParams] = useSearchParams();
     const {resources: {users: {tags: {
         PAGES_EDITOR,
         CATALOGS_EDITOR,
@@ -51,19 +52,19 @@ export default () => {
             return null;
         }
 
-        if (permissions.includes(PAGES_EDITOR)) {
-            return `/pages/${id}`;
+        if (permissions.includes(CATALOGS_EDITOR)) {
+            return `/admin/catalogs/${searchParams.get('id') || ''}`;
         }
 
-        if (permissions.includes(CATALOGS_EDITOR)) {
-            return `/catalogs/${id}`;
+        if (permissions.includes(PAGES_EDITOR)) {
+            return `/admin/pages/${id || ''}`;
         }
 
         if (permissions.includes(MANAGER)) {
-            return "/users";
+            return '/admin/users';
         }
 
-        return null;
+        return '/admin';
     })();
 
     return <nav ref={refNav} className={clsx('u-menu', 'u-menu-dropdown', 'u-offcanvas', 'u-menu-1', {'u-enable-responsive': m991})}>
