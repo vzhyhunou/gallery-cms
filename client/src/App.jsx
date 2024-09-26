@@ -1,7 +1,6 @@
 import React from 'react';
-import {Core, Page, pages, users} from '@vzhyhunou/vzh-cms';
-import {Route, Navigate} from 'react-router-dom';
-import {CustomRoutes, Resource} from 'react-admin';
+import { Core, Page, PageComponent, pages, users } from '@vzhyhunou/vzh-cms';
+import { Route } from 'react-router-dom';
 
 import {
     products,
@@ -12,29 +11,17 @@ import Layout from './cms/Layout';
 export default ({config}) => {
 
     const {resources: {users: {tags: {PAGES_EDITOR, MANAGER, CATALOGS_EDITOR}}}} = config;
+    const resources = {
+        [PAGES_EDITOR]: {pages},
+        [MANAGER]: {users},
+        [CATALOGS_EDITOR]: {products, catalogs}
+    };
 
-    return <Core {...{config}}>
-        <CustomRoutes noLayout>
-            <Route path="/" element={<Navigate to="cms/pages/home"/>}/>
-            <Route path="cms" element={<Layout/>}>
-                <Route path="pages/:id" element={<Page/>}/>
-            </Route>
-        </CustomRoutes>
-        {permissions =>
-            <>
-                {permissions && permissions.includes(PAGES_EDITOR) ?
-                    <Resource name="pages" {...pages}/>
-                : null}
-                {permissions && permissions.includes(MANAGER) ?
-                    <Resource name="users" {...users}/>
-                : null}
-                {permissions && permissions.includes(CATALOGS_EDITOR) ?
-                    <>
-                        <Resource name="products" {...products}/>
-                        <Resource name="catalogs" {...catalogs}/>
-                    </>
-                : null}
-            </>
-        }
+    return <Core {...{config, resources}}>
+        <Route element={<Layout/>}>
+            <Route path="" element={<PageComponent id="home" external/>}/>
+            <Route path=":id" element={<Page/>}/>
+            <Route path="*" element={<PageComponent id="none" external/>}/>
+        </Route>
     </Core>;
 };

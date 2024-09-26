@@ -7,11 +7,12 @@ import {
     TextInput,
     useLocale,
     TextField,
-    ImageField
+    ImageField,
+    SelectArrayInput
 } from 'react-admin';
 import {
-    TagsField,
-    TagsFilter,
+    ConstantField,
+    ConstantInput,
     BulkActionButtons
 } from '@vzhyhunou/vzh-cms';
 
@@ -28,8 +29,10 @@ const filters = [
         source="name"
         alwaysOn
     />,
-    <TagsFilter
+    <ConstantInput
         source="tags"
+        sources="tags"
+        component={SelectArrayInput}
     />
 ];
 
@@ -50,9 +53,11 @@ export default () => {
                 label="resources.catalogs.fields.name"
                 sortable={false}
             />
-            <TagsField
+            <ConstantField
                 sortable={false}
                 source="tags"
+                sources="tags"
+                property="name"
             />
             <ImageField
                 source="image.src"
