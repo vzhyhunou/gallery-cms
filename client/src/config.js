@@ -4,7 +4,7 @@ import { HashLink } from 'react-router-hash-link';
 import Catalog from './cms/resources/catalogs/App';
 import Menu from './cms/resources/menu/App';
 
-export default ((REACT_APP_SRC, REACT_APP_BASE) => ({
+export default (({REACT_APP_SRC, REACT_APP_BASE}) => ({
     locales: {
         en: 'English',
         ru: 'Русский'
@@ -41,4 +41,4 @@ export default ((REACT_APP_SRC, REACT_APP_BASE) => ({
     },
     provider: import(`./provider/${REACT_APP_SRC}.js`),
     basename: REACT_APP_BASE
-}))(process.env.REACT_APP_SRC, process.env.REACT_APP_BASE);
+}))(process.env);
