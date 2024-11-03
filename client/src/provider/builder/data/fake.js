@@ -36,6 +36,11 @@ const getListResponse = async (
                 if (filter.name) {
                     data = data.filter(({name}) => isLocalesIncludes(name, filter.name));
                 }
+                const catalogs = await getList('catalogs').then(({data}) => data);
+                data = data.map(p => ({
+                    ...p,
+                    catalogIds: catalogs.filter(({productIds}) => productIds?.includes(p.id)).map(({id}) => id)
+                }));
                 return getPage(data, params);
             });
         default:
